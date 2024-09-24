@@ -47,7 +47,7 @@ float calcularValorTotal(Produto produto[], int quantidadeAtual) {
     for (int i = 0; i < quantidadeAtual; i++){                                      //função para calcular o valor total dos produtos em stock (não funciona)
         valorTotal += produto[i].preço * produto[i].quantidade;
     }
-    return valorTotal;
+    return valorTotal;                                                      //retorna o valorTotal por ser um float
 }
 
 int main() {
