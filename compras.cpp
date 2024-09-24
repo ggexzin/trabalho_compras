@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-const int max_produtos = 100; // variável global para o máximo de produtos
+const int max_produtos = 100; // variável global para omáximo de produtos
 
 struct Produto{     // estrutura de um produto
     string nome;
@@ -32,7 +32,7 @@ void adicionarProduto(Produto produtos[], int& quantidadeAtual){     // função
 void exibirProdutos(const Produto produtos[], int quantidadeAtual){
 
         
-    for (int i = 0; i < quantidadeAtual; ++i){
+    for (int i = 0; i < quantidadeAtual; ++i){                                            //função para exibir os produtos criados (não funciona)
         cout << "O nome do produto é: " << produtos[i].nome << endl;
         cout << "O preço do produto é: " << produtos[i].preço << endl;
         cout << "A quantidade do produto é: " << produtos[i].quantidade << endl;
@@ -44,7 +44,7 @@ void exibirProdutos(const Produto produtos[], int quantidadeAtual){
 
 float calcularValorTotal(Produto produto[], int quantidadeAtual) {
     float valorTotal = 0.0;
-    for (int i = 0; i < quantidadeAtual; i++){
+    for (int i = 0; i < quantidadeAtual; i++){                                      //função para calcular o valor total dos produtos em stock (não funciona)
         valorTotal += produto[i].preço * produto[i].quantidade;
     }
     return valorTotal;
@@ -57,8 +57,8 @@ int main() {
     Produto produto;
     int escolhas;
 
-do{
- cout << "1. Adicionar um produto" << endl;
+
+    cout << "1. Adicionar um produto" << endl;
     cout << "2. Exibir todos os produtos" << endl;
     cout << "3. Calcula e exibe o valor total de stock" << endl;
     cout << "4. Sair" << endl;
@@ -67,16 +67,19 @@ do{
     switch (escolhas) {
         case 1:
             adicionarProduto(max_produtos, quantidadeAtual); 
+            main();
             system ("clear");
             break;
     
         case 2:
             exibirProdutos(max_produtos, quantidadeAtual); 
+            main();
             system ("clear");
             break;
     
         case 3:
             cout << "O valor total do stock é: " << calcularValorTotal(max_produtos, quantidadeAtual) << endl; 
+            main();
             system ("clear");
             break;
         
@@ -90,10 +93,6 @@ do{
     }
 
 
-}while (escolhas != 4);
-
-
-   
     
     return 0;
 }
