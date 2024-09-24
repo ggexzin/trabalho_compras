@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-const int max_produtos = 100; // variável global para omáximo de produtos
+const int max_produtos = 100; // variável global para o máximo de produtos
 
 struct Produto{     // estrutura de um produto
     string nome;
