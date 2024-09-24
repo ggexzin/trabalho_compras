@@ -78,7 +78,7 @@ int main() {
             break;
     
         case 3:
-            cout << "O valor total do stock é: " << calcularValorTotal(max_produtos, quantidadeAtual) << endl; 
+            calcularValorTotal(max_produtos, quantidadeAtual);
             main();
             system ("clear");
             break;
