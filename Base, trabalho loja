@@ -7,9 +7,11 @@ using namespace std;
 const int max_produtos = 100; // variável global para omáximo de produtos
 
 struct Produto{     // estrutura de um produto
+    int ID;
     string nome;
     float preco;
     int quantidade;
+    char status;
 };
 
 
@@ -20,9 +22,11 @@ void ficheiros(Produto produtos[], int& quantidadeAtual){
     ficheiro.is_open();
             for(int x = 0; x < quantidadeAtual; x++){
                 ficheiro << x + 1 << ",";
+                ficheiro << produtos[x].ID << ",";
                 ficheiro << produtos[x].nome << ",";
                 ficheiro << produtos[x].preco << ",";
-                ficheiro << produtos[x].quantidade;
+                ficheiro << produtos[x].quantidade << ",";
+                ficheiro << produtos[x].status << ",";
                 ficheiro << endl; 
             }
             ficheiro.close();
@@ -32,12 +36,16 @@ void ficheiros(Produto produtos[], int& quantidadeAtual){
 void adicionarProduto(Produto produtos[], int& quantidadeAtual){     // função para adicionar um produto
     if (quantidadeAtual < max_produtos )
     {
+        cout << "Qual o ID do produto? ";
+        cin >> produtos[quantidadeAtual].ID;
+        cout << "Qual a quantidade do produto? ";
+        cin >> produtos[quantidadeAtual].quantidade;
         cout << "Qual o nome do produto? ";
         cin >> produtos[quantidadeAtual].nome;
         cout << "Qual o preco do produto? ";   // se o limite ainda não foi atingido este bloco de codigo será executado
         cin >> produtos[quantidadeAtual].preco;
-        cout << "Qual a quantidade do produto? ";
-        cin >> produtos[quantidadeAtual].quantidade;
+        cout << "Qual o status do produto? ";
+        cin >> produtos[quantidadeAtual].status;
         quantidadeAtual++;
         system("clear");
     }else{
@@ -48,13 +56,34 @@ void adicionarProduto(Produto produtos[], int& quantidadeAtual){     // função
     
 }
 
+
+void alterar_produto(Produto produtos[], int& quantidadeAtual){
+
+
+}
+
+
+void eliminar_produto(Produto produtos[], int& quantidadeAtual){
+    int produto_elmn;
+    
+    
+    cout << "Qual produto desejas eliminar? " << endl;
+    cin >> produto_elmn;
+    
+
+
+}
+
+
 void exibirProdutos(const Produto produtos[], int quantidadeAtual){
 
     for (int i = 0; i < quantidadeAtual; i++){                                            //função para exibir os produtos criados
         cout << "Produto " << quantidadeAtual << endl;
+        cout << "O ID do produto é: " << produtos[i].ID << endl;
         cout << "O nome do produto é: " << produtos[i].nome << endl;
         cout << "O preco do produto é: " << produtos[i].preco << endl;
         cout << "A quantidade do produto é: " << produtos[i].quantidade << endl;
+        cout << "O status do produto é: " << produtos[i].status << endl;
     }
 
 }
