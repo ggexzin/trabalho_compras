@@ -5,21 +5,21 @@ const int max_produtos = 100; // variável global para omáximo de produtos
 
 struct Produto{     // estrutura de um produto
     string nome;
-    float preço;
+    float preco;
     int quantidade;
 };
 
 
 void adicionarProduto(Produto produtos[], int& quantidadeAtual){     // função para adicionar um produto
-    quantidadeAtual = 0;
     if (quantidadeAtual < max_produtos )
     {
         cout << "Qual o nome do produto? ";
         cin >> produtos[quantidadeAtual].nome;
-        cout << "Qual o preço do produto? ";   // se o limite ainda não foi atingido este bloco de codigo será executado
-        cin >> produtos[quantidadeAtual].preço;
+        cout << "Qual o preco do produto? ";   // se o limite ainda não foi atingido este bloco de codigo será executado
+        cin >> produtos[quantidadeAtual].preco;
         cout << "Qual a quantidade do produto? ";
         cin >> produtos[quantidadeAtual].quantidade;
+        quantidadeAtual++;
         
     }else{
         
@@ -32,9 +32,10 @@ void adicionarProduto(Produto produtos[], int& quantidadeAtual){     // função
 void exibirProdutos(const Produto produtos[], int quantidadeAtual){
 
         
-    for (int i = 0; i < quantidadeAtual; ++i){                                            //função para exibir os produtos criados (não funciona)
+    for (int i = 0; i < quantidadeAtual; i++){                                            //função para exibir os produtos criados (não funciona)
+        cout << "Produto " << quantidadeAtual << endl;
         cout << "O nome do produto é: " << produtos[i].nome << endl;
-        cout << "O preço do produto é: " << produtos[i].preço << endl;
+        cout << "O preco do produto é: " << produtos[i].preco << endl;
         cout << "A quantidade do produto é: " << produtos[i].quantidade << endl;
         cout << endl; 
     }
@@ -45,7 +46,7 @@ void exibirProdutos(const Produto produtos[], int quantidadeAtual){
 float calcularValorTotal(Produto produto[], int quantidadeAtual) {
     float valorTotal = 0.0;
     for (int i = 0; i < quantidadeAtual; i++){                                      //função para calcular o valor total dos produtos em stock (não funciona)
-        valorTotal += produto[i].preço * produto[i].quantidade;
+        valorTotal += produto[i].preco * produto[i].quantidade;
     }
     return valorTotal;                                                      //retorna o valorTotal por ser um float
 }
@@ -53,11 +54,11 @@ float calcularValorTotal(Produto produto[], int quantidadeAtual) {
 int main() {
     system ("clear");
     int quantidadeAtual = 0;
-    Produto max_produtos[100];
-    Produto produto;
+    Produto max_Produtos[100];
+    // Produto produto;
     int escolhas;
 
-
+do{
     cout << "1. Adicionar um produto" << endl;
     cout << "2. Exibir todos os produtos" << endl;
     cout << "3. Calcula e exibe o valor total de stock" << endl;
@@ -66,21 +67,21 @@ int main() {
     
     switch (escolhas) {
         case 1:
-            adicionarProduto(max_produtos, quantidadeAtual); 
-            main();
             system ("clear");
+            adicionarProduto(max_Produtos, quantidadeAtual); 
+            // main();
             break;
     
         case 2:
-            exibirProdutos(max_produtos, quantidadeAtual); 
-            main();
             system ("clear");
+            exibirProdutos(max_Produtos, quantidadeAtual); 
+            // main();
             break;
     
         case 3:
-            calcularValorTotal(max_produtos, quantidadeAtual);
-            main();
             system ("clear");
+            cout << calcularValorTotal(max_Produtos, quantidadeAtual) << endl;
+            // main();
             break;
         
         case 4:
@@ -91,6 +92,7 @@ int main() {
             cout << "Escolha errada, tente novamente!" << endl;
             break;
     }
+}while (escolhas != 4);
 
 
     
