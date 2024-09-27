@@ -32,7 +32,7 @@ void adicionarProduto(Produto produtos[], int& quantidadeAtual){     // função
 void exibirProdutos(const Produto produtos[], int quantidadeAtual){
 
         
-    for (int i = 0; i < quantidadeAtual; i++){                                            //função para exibir os produtos criados (não funciona)
+    for (int i = 0; i < quantidadeAtual; i++){                                            //função para exibir os produtos criados (funciona)
         cout << "Produto " << quantidadeAtual << endl;
         cout << "O nome do produto é: " << produtos[i].nome << endl;
         cout << "O preco do produto é: " << produtos[i].preco << endl;
@@ -45,7 +45,7 @@ void exibirProdutos(const Produto produtos[], int quantidadeAtual){
 
 float calcularValorTotal(Produto produto[], int quantidadeAtual) {
     float valorTotal = 0.0;
-    for (int i = 0; i < quantidadeAtual; i++){                                      //função para calcular o valor total dos produtos em stock (não funciona)
+    for (int i = 0; i < quantidadeAtual; i++){                                      //função para calcular o valor total dos produtos em stock (funciona)
         valorTotal += produto[i].preco * produto[i].quantidade;
     }
     return valorTotal;                                                      //retorna o valorTotal por ser um float
