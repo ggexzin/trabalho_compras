@@ -24,6 +24,7 @@ void ficheiros(Produto produtos[], int& quantidadeAtual){
     getline(cin, escolha);
     ofstream ficheiro("produtos.csv");
     if (ficheiro.is_open()) {
+        ficheiro << "ID ┇ Quantidade ┇ Nome ┇ Preco ┇ Status" << endl;
         for (int x = 0; x < quantidadeAtual; x++) {
             ficheiro << produtos[x].ID << ",";  
             ficheiro << produtos[x].quantidade << ",";
