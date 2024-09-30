@@ -54,6 +54,7 @@ void adicionarProduto(Produto produtos[], int& quantidadeAtual){     // função
         cin >> produtos[quantidadeAtual].status;
         quantidadeAtual++;
         system("clear");
+        cout << "Produto adicionado com sucesso! " << endl;
     }else{
         
         cout << "Atingiste o limite máximo de produtos!" << endl;   //caso o limite tenha sido atingido aparecerá este mensagem
