@@ -26,9 +26,9 @@ void ficheiros(Produto produtos[], int& quantidadeAtual){
             for(int x = 0; x < quantidadeAtual; x++){
                 ficheiro << x + 1 << ",";
                 ficheiro << produtos[x].ID << ",";
+                ficheiro << produtos[x].quantidade << ",";
                 ficheiro << produtos[x].nome << ",";
                 ficheiro << produtos[x].preco << ",";
-                ficheiro << produtos[x].quantidade << ",";
                 ficheiro << produtos[x].status;
                 ficheiro << endl; 
             }
@@ -40,8 +40,10 @@ void ficheiros(Produto produtos[], int& quantidadeAtual){
 void adicionarProduto(Produto produtos[], int& quantidadeAtual){     // função para adicionar um produto
     if (quantidadeAtual < max_produtos )
     {
-        cout << "Qual o ID do produto? ";
-        cin >> produtos[quantidadeAtual].ID;
+        for(int y = 1; y<= 100; y++){
+            produtos[quantidadeAtual].ID;
+            y++;
+        }
         cout << "Qual a quantidade do produto? ";
         cin >> produtos[quantidadeAtual].quantidade;
         cout << "Qual o nome do produto? ";
