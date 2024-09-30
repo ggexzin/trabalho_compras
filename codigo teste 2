@@ -16,8 +16,11 @@ struct Produto{     // estrutura de um produto
 
 
 void ficheiros(Produto produtos[], int& quantidadeAtual){
-    cout << "Queres criar um ficheiro com todos os produtos registados? " << endl;
-    int escolha;
+    char escolha;
+    cout << "❙⭐❙ Queres criar um ficheiro com todos os produtos registados? ❙⭐❙" << endl;
+    cout << "════════════════════════════════════════════════════════════════════" << endl;
+    cout << "Pressione qualquer tecla para continuar ➤" << endl;
+    cin >> escolha;
     ofstream ficheiro("produtos.csv");
     ficheiro.is_open();
             for(int x = 0; x < quantidadeAtual; x++){
@@ -26,11 +29,12 @@ void ficheiros(Produto produtos[], int& quantidadeAtual){
                 ficheiro << produtos[x].nome << ",";
                 ficheiro << produtos[x].preco << ",";
                 ficheiro << produtos[x].quantidade << ",";
-                ficheiro << produtos[x].status << ",";
+                ficheiro << produtos[x].status;
                 ficheiro << endl; 
             }
             ficheiro.close();
-            cout << "O ficheiro foi criado com sucesso!" << endl;
+            system("clear");
+            cout << "O ficheiro foi criado com sucesso! ✔" << endl;
 }
 
 void adicionarProduto(Produto produtos[], int& quantidadeAtual){     // função para adicionar um produto
@@ -77,22 +81,21 @@ void alterar_produto(Produto produtos[], int& quantidadeAtual) {
 
 void eliminar_produto(Produto produtos[], int& quantidadeAtual) {
     int idEliminar;
-    cout << "Digite o ID do produto que deseja eliminar: ";
+    cout << "Digite o ID do produto que queres eliminar: ";
     cin >> idEliminar;
 
     for (int i = 0; i < quantidadeAtual; i++) {
         if (produtos[i].ID == idEliminar) {
-            // Mover os produtos subsequentes uma posição para trás
-            for (int j = i; j < quantidadeAtual - 1; j++) {
-                produtos[j] = produtos[j + 1];
-            }
-            quantidadeAtual--; // Reduz a quantidade de produtos
-            cout << "Produto eliminado com sucesso!" << endl;
-            return; // Sai da função após eliminar o produto
+            // isto tá a alterar o status do produto para D
+            produtos[i].status = 'D';
+            cout << "Produto definido como eliminado!" << endl;
+            return; 
         }
     }
+    
     cout << "Produto não encontrado!" << endl;
 }
+
 
 
 
@@ -118,19 +121,24 @@ float calcularValorTotal(Produto produto[], int quantidadeAtual) {
 }
 
 int main() {
+    system("clear");
     int quantidadeAtual = 0;
     Produto max_Produtos[100];
     // Produto produto;
     int escolhas;
 
 do{
-    cout << "1. Adicionar um produto" << endl;
-    cout << "2. Exibir todos os produtos" << endl;
-    cout << "3. Calcula e exibe o valor total de stock" << endl;
-    cout << "4. Criar ficheiro com todos os produtos" << endl;
-    cout << "5. Alterar um produto" << endl;
-    cout << "6. Eliminar um produto" << endl;
-    cout << "7. Sair" << endl;
+    
+    cout << "╓─────────────────────────────╖" << endl;
+    cout << "║            Menu 🏷️           ║" << endl;
+    cout << "╙─────────────────────────────╜" << endl;
+    cout << "𝟏 ➣ Adicionar um produto" << endl;
+    cout << "𝟐 ➣ Exibir todos os produtos" << endl;
+    cout << "𝟑 ➣ Calcula e exibe o valor total de stock" << endl;
+    cout << "𝟒 ➣ Criar ficheiro com todos os produtos" << endl;
+    cout << "𝟓 ➣ Alterar um produto" << endl;
+    cout << "𝟔 ➣ Eliminar um produto" << endl;
+    cout << "𝟕 ➣ Sair 🚪" << endl;
     cin >> escolhas;
     
     switch (escolhas) {
