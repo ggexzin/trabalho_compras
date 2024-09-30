@@ -74,14 +74,14 @@ void adicionarProduto(Produto produtos[], int& quantidadeAtual){     // função
 
 void alterar_produto(Produto produtos[], int& quantidadeAtual) {
     int idAlterar;
-    cout << "Digite o ID do produto que deseja alterar: ";
+    cout << "ID do produto que queres alterar: ";
     cin >> idAlterar;
 
     for (int i = 0; i < quantidadeAtual; i++) {
         if (produtos[i].ID == idAlterar) {
-            cout << "Digite o novo nome do produto: ";
+            cout << "Novo nome do produto: ";
             cin >> produtos[i].nome;
-            cout << "Digite o novo preco do produto: ";
+            cout << "Novo preco do produto: ";
             cin >> produtos[i].preco;
             cout << "Produto alterado com sucesso!" << endl;
             return; // Sai da função após alterar o produto
