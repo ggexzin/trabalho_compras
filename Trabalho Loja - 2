@@ -84,6 +84,8 @@ void alterar_produto(Produto produtos[], int& quantidadeAtual) {
             cin >> produtos[i].nome;
             cout << "Novo preco do produto: ";
             cin >> produtos[i].preco;
+            cout << "Nova quantidade do produto: ";
+            cin >> produtos[i].quantidade;
             cout << "Produto alterado com sucesso!" << endl;
             return; // Sai da função após alterar o produto
         }
